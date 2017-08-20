@@ -7,6 +7,6 @@ func main(){
     fmt.Println("Hello World")
     fmt.Printf("Hello ")
     fmt.Printf("World\n")
-    fmt.Printf("%d + %d  = %d" , a , b , a+b)
-    fmt.Print("Hello")
+    fmt.Printf("%d + %d  = %d\n" , a , b , a+b)
+    fmt.Print(a , " + " ,b," = ",a+b)
 }
