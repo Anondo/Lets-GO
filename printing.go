@@ -8,4 +8,5 @@ func main(){
     fmt.Printf("Hello ")
     fmt.Printf("World\n")
     fmt.Printf("%d + %d  = %d" , a , b , a+b)
+    fmt.Print("Hello")
 }
