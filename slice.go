@@ -11,5 +11,6 @@ func main(){
     arr = append(arr , 4)
     fmt.Println(arr)
     fmt.Println(arr[1:3])
+    fmt.Println(arr[0:])
 }
  //slices are abstraction of array. They are like dynamic arrays, similar to that of python
