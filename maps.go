@@ -28,6 +28,21 @@ func main(){
         fmt.Println("Who is this")
     }
 
+    delete(characters , "king in the north") //delete key
+
+    charName , exists = characters["king in the north"]
+    if(exists){
+        fmt.Println(charName , " is  a fine character")
+    }else{
+        fmt.Println("Who is this")
+    }
+
+    characters["lady of winterfell"] = "Arya Stark" //update
+
+    for rank := range characters{
+        fmt.Println(characters[rank] ,"is" , rank)
+    }
+
 }
 
 //maps are sort of like dictionary in python but they are not dynamic. They can only contain one type of value
