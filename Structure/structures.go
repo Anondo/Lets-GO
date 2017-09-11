@@ -9,9 +9,6 @@ type Books struct{
      copies int
 }
 
-func (b Books) getName() string{
-    return b.name
-}
 
 
 func main(){
@@ -29,6 +26,4 @@ func main(){
     fmt.Println(book2.name)
     fmt.Println(book2.author)
     fmt.Println(book2.copies)
-    fmt.Println(book1.getName())
-    fmt.Println(book2.getName())
 }
