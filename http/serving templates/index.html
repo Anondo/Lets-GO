@@ -1,0 +1,18 @@
+<html>
+
+<head>
+  <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+</head>
+
+<body>
+
+  <ul>
+    {{range $_ , $val := .Footballers}}
+      <li>{{$val.Name}} plays for {{$val.Club}} and is {{$val.Age}} years old</li>
+    {{end}}
+  </ul>
+
+</body>
+
+
+</html>
