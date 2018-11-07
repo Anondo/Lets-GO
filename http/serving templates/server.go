@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -21,18 +22,15 @@ func main() {
 	}
 }
 
-func makePlayer(name string, club string, age int) Player {
-	return Player{name, club, age}
-}
-
 func handler(w http.ResponseWriter, r *http.Request) {
 
 	log.Println(r.Method)
 
-	players := make([]Player, 3)
-	players = append(players, makePlayer("Messi", "Fc Barcelona", 31))
-	players = append(players, makePlayer("C.Ronaldo", "Real Madrid Cf", 34))
-	players = append(players, makePlayer("Neyman", "PSG", 27))
+	var players []Player
+	fmt.Println(players)
+	players = append(players, Player{"Messi", "Fc Barcelona", 31})
+	players = append(players, Player{"C.Ronaldo", "Real Madrid Cf", 34})
+	players = append(players, Player{"Neyman", "PSG", 27})
 
 	var context struct {
 		Footballers []Player
@@ -42,4 +40,4 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	t, _ := template.ParseFiles("index.html")
 	t.Execute(w, context)
 }
-func dummyhandler(w http.ResponseWriter, r *http.Request) {}
+func dummyhandler(w http.ResponseWriter, r *http.Request) { log.Println(r.Method) }
