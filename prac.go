@@ -1,25 +1,23 @@
 package main
 
-import "fmt"
-import "time"
+import (
+	"fmt"
+	"log"
+	"net/http"
 
-func getInt(a chan interface{}) {
-	time.Sleep(100 * time.Microsecond)
-	a <- 12
-}
-func getStr(a chan interface{}) {
-	//time.Sleep(100 * time.Microsecond)
-	a <- "Hello world"
-}
-func describe(i interface{}) {
-	fmt.Printf("%v is a %T\n", i, i)
+	randu "github.com/thedevsaddam/renderer"
+)
+
+func handler(rw http.ResponseWriter, req *http.Request) {
+	rndr := randu.New()
+	rndr.HTMLString(rw, http.StatusOK, "<h1>Hello World</h1>")
 }
 
 func main() {
-	ch := make(chan interface{})
-	go getInt(ch)
-	go getStr(ch)
-	x, y := <-ch, <-ch
-	describe(x)
-	describe(y)
+	http.HandleFunc("/", handler)
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		log.Fatal(fmt.Sprintf("Could not start server: %v", err))
+	}
+
 }
