@@ -1,23 +1,22 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
-	"net/http"
-
-	randu "github.com/thedevsaddam/renderer"
 )
 
-func handler(rw http.ResponseWriter, req *http.Request) {
-	rndr := randu.New()
-	rndr.HTMLString(rw, http.StatusOK, "<h1>Hello World</h1>")
-}
+type Object map[string]string
 
 func main() {
-	http.HandleFunc("/", handler)
-	err := http.ListenAndServe(":8080", nil)
+	s := "{\"en\":\"50% Discount on next 5 rides!!!\"}"
+	b := []byte(s)
+	var o Object
+	err := json.Unmarshal(b, &o)
+
 	if err != nil {
-		log.Fatal(fmt.Sprintf("Could not start server: %v", err))
+		log.Fatal(err)
 	}
+	fmt.Println(o)
 
 }
