@@ -1,22 +1,19 @@
 package main
 
-import (
-	"encoding/json"
-	"fmt"
-	"log"
-)
-
-type Object map[string]string
+import "fmt"
 
 func main() {
-	s := "{\"en\":\"50% Discount on next 5 rides!!!\"}"
-	b := []byte(s)
-	var o Object
-	err := json.Unmarshal(b, &o)
+	b := true
+	opt := ""
+	switch b {
+	case 1 < 2:
+		fmt.Println("ashchi")
+		opt = "yoyo"
+	case 6 < 8:
+		fmt.Println("yeay")
+		opt = "nyo nyo"
 
-	if err != nil {
-		log.Fatal(err)
 	}
-	fmt.Println(o)
+	fmt.Println(opt)
 
 }
